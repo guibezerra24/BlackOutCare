@@ -53,5 +53,51 @@ namespace BlackOutCare.Controller
             Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
             Console.ReadKey();
         }
+
+        public static void ExibirHistorico()
+        {
+            Console.Clear();
+            Console.WriteLine("=== Histórico de Eventos ===\n");
+
+            if (BancoSimulado.Incidentes.Count == 0 && BancoSimulado.Alertas.Count == 0)
+            {
+                Console.WriteLine("Nenhum evento registrado até o momento.");
+            }
+            else
+            {
+                if (BancoSimulado.Incidentes.Count > 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(">> Incidentes:");
+                    Console.ResetColor();
+
+                    foreach (var i in BancoSimulado.Incidentes)
+                    {
+                        Console.WriteLine($"[{i.Data:dd/MM/yyyy}] Setor: {i.Setor} | {i.Descricao}");
+                    }
+
+                    Console.WriteLine();
+                }
+
+                if (BancoSimulado.Alertas.Count > 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(">> Alertas:");
+                    Console.ResetColor();
+
+                    foreach (var a in BancoSimulado.Alertas)
+                    {
+                        Console.WriteLine($"[{a.Data:dd/MM/yyyy HH:mm}] Setor: {a.Setor} | {a.Mensagem}");
+                    }
+
+                    Console.WriteLine();
+                }
+            }
+
+            Console.WriteLine("Pressione qualquer tecla para voltar ao menu...");
+            Console.ReadKey();
+        }
     }
+
+   
 }

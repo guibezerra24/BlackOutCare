@@ -24,6 +24,7 @@ namespace BlackOutCare.View
                 Console.WriteLine("2 - Gerar Alerta");
                 Console.WriteLine("3 - Monitorar Setores");
                 Console.WriteLine("4 - Gerar Relatório de Status");
+                Console.WriteLine("5 - Ver Histórico de Eventos");
                 Console.WriteLine("0 - Sair");
 
                 Console.Write("\nEscolha uma opção: ");
@@ -42,6 +43,9 @@ namespace BlackOutCare.View
                         break;
                     case "4":
                         RelatorioController.GerarRelatorio();
+                        break;
+                    case "5":
+                        RelatorioController.ExibirHistorico();
                         break;
                     case "0":
                         continuar = false;
